@@ -1,0 +1,9 @@
+*.nds
+*.elf
+*build
+*.dldi
+*.bz2
+build.sh
+build-release.sh
+banner.bin
+twl-banner.bin
