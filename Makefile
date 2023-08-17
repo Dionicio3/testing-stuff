@@ -22,17 +22,18 @@ INCLUDES	:=	include build
 VERSION_MAJOR	:= 	0
 VERSION_MINOR	:= 	0
 VERSION_PATCH	:= 	0
+GAME_TITLE	:=	Dionicio3's Testing Thing
+GAME_SUBTITLE1	:=	Dionicio3
+GAME_ICON	:=	../icon.bmp
 RELEASE := false
 ifeq ($(RELEASE), true)
-	GAME_TITLE	:=	Dionicio3's Testing Thing
-	GAME_SUBTITLE1	:=	Dionicio3
 	GAME_SUBTITLE2	:=	$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
-	GAME_ICON	:=	../icon.bmp
 else ifeq ($(RELEASE), false)
-	GAME_TITLE	:=	Dionicio3's Testing Thing
-	GAME_SUBTITLE1	:=	Dionicio3
-	GAME_SUBTITLE2	:=	$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH).$(shell git rev-list --abbrev-commit --tags --max-count=1)
-	GAME_ICON	:=	../icon.bmp
+	ifeq ($(shell git diff --quiet || echo 'dirty'), dirty)
+		GAME_SUBTITLE2	:=	$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH).DIRTY
+	else
+		GAME_SUBTITLE2	:=	$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH).$(shell git rev-parse --short HEAD)
+	endif
 endif
 #---------------------------------------------------------------------------------
 # options for code generation
