@@ -1,3 +1,4 @@
+*.bak
 *.nds
 *.elf
 *build
