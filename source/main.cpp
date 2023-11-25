@@ -11,19 +11,19 @@ void Vblank() {
 
 int main(int argc, char **argv) {
 	consoleDemoInit();
-	// Turn on MODE 0 on the Top Screen
+	// turn on MODE 0 on the top screen
 	NF_Set2D(0, 0);
     swiWaitForVBlank();
 
-	// Set the Root Folder
+	// init nitroFS and set as root folder
 	nitroFSInit(NULL);
 	NF_SetRootFolder("NITROFS");
 
-	// Initialize the Tiled Backgrounds System on the Top Screen
+	// init tiled bg system on the top screen
 	NF_InitTiledBgBuffers();
 	NF_InitTiledBgSys(0);
 
-	// Initialize the Tiled Sprites System on the Bottom Screen
+	// init tiled sprites system on the top screen
 	NF_InitSpriteBuffers();
 	NF_InitSpriteSys(0);
 
@@ -31,12 +31,14 @@ int main(int argc, char **argv) {
 	NF_LoadSpriteGfx("skiddo", 0, 16, 16);
 	NF_LoadSpritePal("skiddo", 0);
 
-	// Transfer our sprite to VRAM
+	// transfer sprite to VRAM
 	NF_VramSpriteGfx(0, 0, 0, false);
 	NF_VramSpritePal(0, 0, 0);
 
-	// Create the Sprite!
+	// create sprite
 	NF_CreateSprite(0, 0, 0, 0, 0, 0);
+	// print shit
+
 	iprintf("Testing :)\n");
 	while(true) {
 		NF_SpriteOamSet(0);
