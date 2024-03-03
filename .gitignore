@@ -9,8 +9,7 @@
 *.bat
 *.dsi
 *.cia
-*.bmp
-*.png
 make_cia
 banner.bin
 twl-banner.bin
+*.test
