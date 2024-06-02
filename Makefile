@@ -180,7 +180,7 @@ DEPS		:= $(OBJS:.o=.d)
 
 .PHONY: all clean dump dldipatch sdimage
 
-all: $(ROM_NDS) $(ROM_DSI) $(ROM_CIA)
+all: clean $(ROM_NDS) $(ROM_DSI) $(ROM_CIA)
 
 ifneq ($(strip $(NITROFSDIR)),)
 # Additional arguments for ndstool
