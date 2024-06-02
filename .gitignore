@@ -9,6 +9,7 @@
 *.bat
 *.dsi
 *.cia
-make_cia
+make_cia*
 banner.bin
 twl-banner.bin
+.vscode
