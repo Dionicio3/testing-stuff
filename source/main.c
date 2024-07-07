@@ -17,14 +17,9 @@ int main(int argc, char **argv) {
     swiWaitForVBlank();
 
 	// init nitroFS
-	if(!nitroFSInit(argv[0])) {
-        if(!nitroFSInit("/title/00030004/54455354/content/%08x.app")) {
-            if(!nitroFSInit("nand:/title/00030004/54455354/content/%08x.app")) {
-                printf("NitroFS Init failed");
-            }
-        }
-    }
-    // set nitroFS as root
+	nitroFSInit(NULL);
+	
+	// set nitroFS as root
 	NF_SetRootFolder("NITROFS");
 
 	// init tiled bg system on the top screen
